@@ -35,12 +35,13 @@ public class CheckingAccount extends Account
     @Override
     public boolean Debit(double wthDrw)
     {
-        boolean gotMoney = super.Debit(wthDrw);     // calls account debit and recieves boolean back
+        boolean gotMoney = super.Debit(wthDrw + transFee);     // calls account debit and recieves boolean back
         //System.out.println(gotMoney);
         if (gotMoney)                               // test boolean
         {
             double bal = getBalance();              // gets updated balance
-            setBalance(bal - transFee);             // updates applying the transaction fee
+            System.out.println("Balance has been update.");
+            //setBalance(bal - transFee);             // updates applying the transaction fee
             //System.out.println("bal is " + bal);
             
         } // end if if they gots paid
